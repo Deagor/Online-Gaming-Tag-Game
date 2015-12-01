@@ -10,7 +10,12 @@ public class Player : MonoBehaviour {
     //are we player1?
     public bool isPlayer1;
 
+    //are we the chaser?
+    bool isChaser;
+
     public Texture p1Texture;
+
+    public Material p1Material;
 
     GameObject player;
 
@@ -26,9 +31,14 @@ public class Player : MonoBehaviour {
 
         player = GameObject.Find("player1");
 
+        SpriteRenderer my_renderer = player.GetComponent<SpriteRenderer>();
+
         if (isPlayer1 == true)
         {
-            player.GetComponent<SpriteRenderer>().material.SetTexture("_MainTex", p1Texture);
+            //player.GetComponent<SpriteRenderer>().material.SetTexture("_MainTex", p1Texture);
+            //Debug.Log(player.GetComponent<Renderer>().material.);
+            player.GetComponent<Renderer>().material.mainTexture = p1Texture;
+            //my_renderer.material = p1Material;
         }
         else
         {
